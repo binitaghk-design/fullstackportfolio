@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap - Binita Gurung</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-4">
+
+<div class="section-box">
+    <h2>Bootstrap Framework</h2>
+    <p>
+   Bootstrap is a free front-end tool with pre-designed components and a grid system. 
+   It includes ready-made elements like navbars, buttons, and modals. 
+   This helps developers build professional, mobile-friendly websites that work consistently on any screen size.
+  </p>
+</div>
+
+<div class="section-box">
+    <div class="row text-center">
+        <div class="col-md-4 bg-primary text-white p-3 mb-3 column" onclick="highlightColumn(this,'Blue Column clicked!')">
+            Column 1<br><br>
+            <button class="btn btn-light">Click</button>
+        </div>
+        <div class="col-md-4 bg-success text-white p-3 mb-3 column" onclick="highlightColumn(this,'Green Column clicked!')">
+            Column 2<br><br>
+            <button class="btn btn-light">Click</button>
+        </div>
+        <div class="col-md-4 bg-danger text-white p-3 mb-3 column" onclick="highlightColumn(this,'Red Column clicked!')">
+            Column 3<br><br>
+            <button class="btn btn-light">Click</button>
+        </div>
+    </div>
+    <p id="columnMessage"></p>
+    <p>
+        This example shows how Bootstrap creates a responsive layout using columns. 
+        The content is arranged in three columns that adjust based on screen size. 
+        Buttons are added to show components usage. It demonstrates flexible and responsive design.
+    </p>
+</div>
+
+<a href="index.html" class="back">⬅ Back to Menu</a>
+
+<script src="script.js"></script>
+</body>
+</html>

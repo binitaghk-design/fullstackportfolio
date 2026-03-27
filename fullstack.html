@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Full Stack - Binita Gurung</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="section-box">
+    <h2>What is Full Stack Development?</h2>
+    <p>
+Full stack development involves building both the front-end (user interface) and back-end (server, database, logic) of a web application. 
+This overall skill set allows developers to handle databases, APIs, server setup, and interface design. 
+As a result, they can create complete, fully functional web applications from start to finish.
+    </p>
+</div>
+
+<div class="section-box">
+    <div class="card">
+        <h4>Example: Login System</h4>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login()">Login</button>
+        <p id="loginResult"></p>
+        <p>
+            <strong>📝 Login Credentials:</strong><br>
+            Username: <strong>admin</strong><br>
+            Password: <strong>1234</strong>
+        </p>
+        <p>
+            This example demonstrates a simple login system using JavaScript. 
+            The user must enter the correct username (<strong>admin</strong>) and password (<strong>1234</strong>) to log in. 
+            If the credentials are correct, a success message appears and the fields clear. 
+            If the credentials are incorrect or fields are left empty, an error message is shown. 
+            This simulates how real-world applications handle user authentication on the front-end.
+        </p>
+    </div>
+</div>
+
+<a href="index.html" class="back">⬅ Back to Menu</a>
+
+
+<script>
+    const FIXED_USERNAME = "admin";
+    const FIXED_PASSWORD = "1234";
+    
+    function login() {
+        let user = document.getElementById("username").value;
+        let pass = document.getElementById("password").value;
+        let res = document.getElementById("loginResult");
+        
+        if(!user || !pass) {
+            res.innerHTML = "Please fill all fields!";
+            res.style.color = "#e74c3c";
+        } else if(user === FIXED_USERNAME && pass === FIXED_PASSWORD) {
+            res.innerHTML = "Login Successful! Welcome " + user + "!";
+            res.style.color = "#27ae60";
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+        } else {
+            res.innerHTML = "Invalid Credentials! Username or password is incorrect.";
+            res.style.color = "#e74c3c";
+        }
+    }
+</script>
+
+</body>
+</html>

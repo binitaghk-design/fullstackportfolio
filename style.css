@@ -1,0 +1,453 @@
+/* GENERAL BODY STYLES - Clean White Background */
+body {
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    text-align: center;
+    background: #ffffff;
+    margin: 0;
+    padding-bottom: 50px;
+    transition: all 0.3s ease;
+    color: #2c3e50;
+}
+
+/* TITLE & SUBTITLE */
+.title {
+    margin-top: 40px;
+    font-size: 3em;
+    color: #2c3e50;
+    animation: fadeInDown 0.8s ease;
+    letter-spacing: 1px;
+}
+
+.subtitle {
+    color: #5a6e7e;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    animation: fadeInUp 0.8s ease;
+}
+
+/* MENU LINKS */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+    margin: 40px auto;
+}
+
+.menu a {
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(52,152,219,0.3);
+    font-size: 1.1em;
+    border: none;
+}
+
+.menu a:hover {
+    background: linear-gradient(135deg, #2980b9, #2472a4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(52,152,219,0.4);
+    color: white;
+}
+
+.menu a.new-feature {
+    background: linear-gradient(135deg, #e67e22, #d35400);
+    box-shadow: 0 4px 12px rgba(230,126,34,0.3);
+}
+
+.menu a.new-feature:hover {
+    background: linear-gradient(135deg, #d35400, #c0392b);
+    box-shadow: 0 8px 20px rgba(230,126,34,0.4);
+}
+
+/* BACK BUTTON */
+.back {
+    display: inline-block;
+    margin: 20px;
+    text-decoration: none;
+    color: #3498db;
+    font-weight: 600;
+    padding: 10px 24px;
+    background: #f8f9fa;
+    border-radius: 30px;
+    transition: 0.3s;
+    border: 2px solid #3498db;
+}
+
+.back:hover {
+    background: #3498db;
+    transform: translateX(-5px);
+    color: white;
+    border-color: #3498db;
+}
+
+/* SECTION BOXES */
+.section-box {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 30px;
+    margin: 30px auto;
+    width: 70%;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #dee2e6;
+}
+
+.section-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+}
+
+/* HEADINGS */
+h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #3498db;
+    border-bottom: 3px solid #3498db;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.8em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+h4 {
+    font-size: 1.5em;
+    color: #3498db;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* PARAGRAPHS */
+.section-box p {
+    margin-bottom: 15px;
+    line-height: 1.7;
+    color: #4a5568;
+    font-size: 1.05em;
+}
+
+/* CARD STYLING */
+.card {
+    background: white;
+    padding: 25px;
+    margin: 0 auto 30px auto;
+    width: 60%;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    transition: 0.3s;
+    border: 1px solid #e9ecef;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(52,152,219,0.15);
+    border-color: #3498db;
+}
+
+/* INPUTS & BUTTONS IN CARDS */
+.card input,
+.card button {
+    display: block;
+    margin: 12px auto;
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+    font-size: 1em;
+    transition: 0.3s;
+    width: 85%;
+    font-family: inherit;
+}
+
+.card input {
+    background: #f8f9fa;
+    color: #2c3e50;
+}
+
+.card input:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52,152,219,0.1);
+    background: #ffffff;
+}
+
+.card button {
+    background: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.card button:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(52,152,219,0.3);
+}
+
+.card button:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* RESULT TEXT */
+#result, #loginResult, #output, #columnMessage {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 12px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+/* BOX FOR CSS EXAMPLE */
+.box {
+    width: 120px;
+    height: 120px;
+    background: #3498db;
+    margin: 20px auto;
+    border-radius: 12px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(52,152,219,0.2);
+}
+
+.box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(52,152,219,0.3);
+}
+
+/* BUTTON HOVER EFFECT */
+button:hover {
+    opacity: 0.95;
+    transition: 0.3s;
+}
+
+/* ANIMATIONS */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Bootstrap Column Highlight */
+.column {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.column:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+    .section-box, .card {
+        width: 90%;
+    }
+    
+    .menu {
+        width: 85%;
+        margin: 30px auto;
+    }
+    
+    h2 {
+        font-size: 2em;
+    }
+    
+    h3 {
+        font-size: 1.5em;
+    }
+    
+    .card input,
+    .card button {
+        width: 90%;
+    }
+    
+    .title {
+        font-size: 2.2em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h2 {
+        font-size: 1.6em;
+    }
+    
+    h3 {
+        font-size: 1.3em;
+    }
+    
+    .section-box {
+        padding: 20px;
+    }
+    
+    .title {
+        font-size: 1.8em;
+    }
+    
+    .subtitle {
+        font-size: 1em;
+    }
+    
+    .menu a {
+        padding: 12px 20px;
+        font-size: 1em;
+    }
+}
+
+/* SMOOTH SCROLL BEHAVIOR */
+html {
+    scroll-behavior: smooth;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3498db;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2980b9;
+}
+
+/* TEXT CENTER UTILITY */
+.text-center {
+    text-align: center;
+}
+
+/* ADDITIONAL PROFESSIONAL TOUCHES */
+.section-box p:first-of-type {
+    font-size: 1.1em;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* Success message styling */
+#output[style*="color: rgb(39, 174, 96)"],
+#result[style*="color: rgb(39, 174, 96)"],
+#loginResult[style*="color: rgb(39, 174, 96)"] {
+    background: #d4edda;
+    border-left: 4px solid #27ae60;
+}
+
+/* Error message styling */
+#output[style*="color: rgb(231, 76, 60)"],
+#result[style*="color: rgb(231, 76, 60)"],
+#loginResult[style*="color: rgb(231, 76, 60)"] {
+    background: #f8d7da;
+    border-left: 4px solid #e74c3c;
+}
+
+/* Card inner spacing */
+.card h4 {
+    margin-top: 0;
+}
+
+/* Input placeholder styling */
+::placeholder {
+    color: #adb5bd;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #adb5bd;
+}
+
+::-ms-input-placeholder {
+    color: #adb5bd;
+}
+
+/* Blue accent for links and important elements */
+a:not(.menu a):not(.back) {
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:not(.menu a):not(.back):hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+/* Menu container styling */
+.menu a {
+    position: relative;
+    overflow: hidden;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(255,255,255,0.5);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.menu a:hover::after {
+    transform: translateX(0);
+}

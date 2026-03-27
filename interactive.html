@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Demo - Binita Gurung</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .theme-switcher {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .theme-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        
+        .theme-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        
+        .todo-item.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+        
+        .todo-item span {
+            cursor: pointer;
+            flex: 1;
+            text-align: left;
+        }
+        
+        .delete-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .delete-btn:hover {
+            background: #c0392b;
+        }
+        
+        #todoInput {
+            width: 70%;
+            margin-right: 10px;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        #clock {
+            font-size: 2em;
+            font-weight: bold;
+            margin: 20px 0;
+            font-family: monospace;
+            background: #ecf0f1;
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        
+        .api-data-box {
+            margin-top: 15px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="section-box">
+        <h2>🎮 Interactive Demo Zone 🎮</h2>
+        <p>
+            This interactive section showcases advanced JavaScript concepts and modern web development techniques. 
+            It demonstrates real-time data updates, persistent storage, asynchronous operations, and dynamic theme switching. 
+            These features are essential building blocks for creating engaging, user-friendly web applications. 
+            Each component highlights different aspects of JavaScript's capabilities in a practical, hands-on way. 
+            Explore the examples below to see how modern web applications handle data persistence, real-time updates, and API communication.
+        </p>
+    </div>
+    
+    <!-- Theme Switcher -->
+    <div class="section-box">
+        <h4>🎨 Theme Switcher</h4>
+        <div class="theme-switcher">
+            <button class="theme-btn" onclick="changeTheme('light')" style="background:#f8f9fa; color:#000;">Light</button>
+            <button class="theme-btn" onclick="changeTheme('dark')" style="background:#2d3748; color:#fff;">Dark</button>
+            <button class="theme-btn" onclick="changeTheme('blue')" style="background:#3498db; color:#fff;">Blue</button>
+        </div>
+        <p>Change the theme of this page to see dynamic styling in action! Your preference is saved automatically.</p>
+    </div>
+    
+    <!-- Todo List -->
+    <div class="section-box">
+        <h4>✅ Interactive Todo List</h4>
+        <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <input type="text" id="todoInput" placeholder="Enter a task..." style="flex: 1; max-width: 300px;">
+            <button onclick="addTodo()">Add Task</button>
+        </div>
+        <div id="todoList" style="margin-top: 20px;"></div>
+        <p>This demonstrates DOM manipulation, arrays, and local storage concepts! Tasks are saved in your browser.</p>
+    </div>
+    
+    <!-- Real-time Clock -->
+    <div class="section-box">
+        <h4>⏰ Real-time Clock</h4>
+        <div id="clock"></div>
+        <p>Shows real-time updates using setInterval() and date objects! Updates every second.</p>
+    </div>
+    
+    <!-- API Simulation -->
+    <div class="section-box">
+        <h4>🌐 API Simulation</h4>
+        <button onclick="fetchMockData()">Fetch User Data</button>
+        <div id="apiData"></div>
+        <p>Simulates fetching data from an API - demonstrates async JavaScript concepts and promises!</p>
+    </div>
+    
+    <div class="text-center">
+        <a href="index.html" class="back">⬅ Back to Menu</a>
+    </div>
+    
+    <div class="footer">
+        <p>Created by <strong>Binita Gurung</strong> | Full Stack Development Portfolio</p>
+    </div>
+    
+    <script>
+        function changeTheme(theme) {
+            const body = document.body;
+            const sections = document.querySelectorAll('.section-box, .card');
+            
+            if(theme === 'dark') {
+                body.style.background = 'linear-gradient(to right, #1a1a2e, #16213e)';
+                body.style.color = '#eee';
+                sections.forEach(s => {
+                    if(s.style) s.style.background = '#2d3748';
+                    s.style.color = '#eee';
+                });
+            } else if(theme === 'blue') {
+                body.style.background = 'linear-gradient(to right, #2980b9, #3498db)';
+                body.style.color = '#fff';
+                sections.forEach(s => {
+                    s.style.background = 'rgba(255,255,255,0.95)';
+                    s.style.color = '#333';
+                });
+            } else {
+                body.style.background = '#ffffff';
+                body.style.color = '#333';
+                sections.forEach(s => {
+                    s.style.background = 'white';
+                    s.style.color = '#333';
+                });
+            }
+            
+            localStorage.setItem('theme', theme);
+        }
+        
+        const savedTheme = localStorage.getItem('theme');
+        if(savedTheme) changeTheme(savedTheme);
+        
+        let todos = JSON.parse(localStorage.getItem('todos')) || [];
+        
+        function renderTodos() {
+            const todoList = document.getElementById('todoList');
+            if(!todoList) return;
+            
+            if(todos.length === 0) {
+                todoList.innerHTML = '<p style="color: gray;">No tasks yet. Add one above!</p>';
+                return;
+            }
+            
+            todoList.innerHTML = '';
+            todos.forEach((todo, index) => {
+                const todoItem = document.createElement('div');
+                todoItem.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+                todoItem.innerHTML = `
+                    <span onclick="toggleTodo(${index})">${escapeHtml(todo.text)}</span>
+                    <button class="delete-btn" onclick="deleteTodo(${index})">Delete</button>
+                `;
+                todoList.appendChild(todoItem);
+            });
+            
+            localStorage.setItem('todos', JSON.stringify(todos));
+        }
+        
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+        
+        function addTodo() {
+            const input = document.getElementById('todoInput');
+            const text = input.value.trim();
+            
+            if(text) {
+                todos.push({ text: text, completed: false });
+                renderTodos();
+                input.value = '';
+                input.focus();
+            } else {
+                alert('Please enter a task!');
+            }
+        }
+        
+        function toggleTodo(index) {
+            todos[index].completed = !todos[index].completed;
+            renderTodos();
+        }
+        
+        function deleteTodo(index) {
+            todos.splice(index, 1);
+            renderTodos();
+        }
+        
+        renderTodos();
+        
+        document.getElementById('todoInput')?.addEventListener('keypress', function(e) {
+            if(e.key === 'Enter') addTodo();
+        });
+        
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            if(clock) {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                clock.innerHTML = `${hours}:${minutes}:${seconds}`;
+            }
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+        async function fetchMockData() {
+            const apiData = document.getElementById('apiData');
+            apiData.innerHTML = '<div><div class="loading-spinner"></div> Loading user data...</div>';
+            
+            setTimeout(() => {
+                const users = [
+                    { name: 'Dr. Sarah Johnson', email: 'sarah.johnson@example.com', role: 'Senior Developer', joinDate: '2023' },
+                    { name: 'Prof. Michael Chen', email: 'michael.chen@example.com', role: 'Tech Lead', joinDate: '2022' },
+                    { name: 'Emma Rodriguez', email: 'emma.rodriguez@example.com', role: 'UI/UX Designer', joinDate: '2024' },
+                    { name: 'David Kim', email: 'david.kim@example.com', role: 'Backend Engineer', joinDate: '2021' }
+                ];
+                const randomUser = users[Math.floor(Math.random() * users.length)];
+                apiData.innerHTML = `
+                    <div class="api-data-box">
+                        <strong style="font-size: 1.1em;">👤 ${randomUser.name}</strong><br>
+                        📧 Email: ${randomUser.email}<br>
+                        💼 Role: ${randomUser.role}<br>
+                        📅 Joined: ${randomUser.joinDate}
+                    </div>
+                `;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
